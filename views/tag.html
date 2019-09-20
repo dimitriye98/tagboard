@@ -1,0 +1,9 @@
+{% extends 'layout.html' %}
+
+{% block title %}{{ tag }}{% endblock %}
+
+{% block content %}
+	<h1>All files tagged with {{ tag }}</h1>
+	{% include "list.html" %}
+{% endblock %}
+

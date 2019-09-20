@@ -1,0 +1,11 @@
+{% if user !== null %}
+	<div class="userbox">
+		<p>Logged in as <a href="/users/{{ user }}">{{ user }}</a></p>
+		<p><a href="/logout">Log Out</a></p>
+	</div>
+{% else %}
+	<div class="userbox">
+		<a href="/login{% if page and page !== '/' %}?{{ page }}{% endif %}">Log in</a>
+		<a href="/register{% if page and page !== '/' %}?{{ page }}{% endif %}">Register</a>
+	</div>
+{% endif %}

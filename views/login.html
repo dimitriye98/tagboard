@@ -1,0 +1,22 @@
+{% extends 'layout.html' %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+	<h1>Login</h1>
+	<p>Please log in to access</p>
+	<form action="/form/login" method="post">
+		<!-- Hidden field to tell the form where to return to -->
+		<input type="hidden" value="{{ retpage }}" name="retpage">
+
+		{% if failed %}
+			<p><span class="login-error">Incorrect username or password.</span></p>
+		{% endif %}
+
+		<input type="text"     placeholder="Username" name="username">
+		<input type="password" placeholder="Password" name="password">
+
+		<input type="submit" value="Login">
+	</form>
+{% endblock %}
+

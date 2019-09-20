@@ -1,0 +1,44 @@
+<nav class="img-list">
+	{% for image in images %}
+		<div class="img-tile">
+			<div class="thumb-border">
+				<a class="thumb-box shrinkwrap" href="{{ image.url }}">
+					<img src="{{ image.thumb }}"
+					     srcset="{{ image.thumb }}?s=256 256w,
+					             {{ image.thumb }}?s=512 512w,
+					             {{ image.thumb }}?s=1024 1024w,
+					             {{ image.thumb }}?s=2048 2048w,
+					             {{ image.thumb }}?s=4096 4096w"
+					     sizes="(max-width: 4.5in) 50vw, (max-width: 7.5in) 34vw, 20vw">
+				</a>
+			</div>
+		</div>
+	{% endfor %}
+</nav>
+<nav class="pages-wrapper navbar-mixin">
+	<div class="page-button prev">
+		{% if pagination.prev != null %}
+			<a href="{{ pagination.prev }}">Prev</a>
+		{% endif %}
+	</div>
+	<div class="pages">
+		<!-- Style is dynamically injected by server,
+		     which is why it's not in the stylesheet -->
+		<div class="pages-inner" style="padding-left: {{ pagination.lindent }}em">
+			{% for page in pagination.pages %}
+				{% if page.number != pagination.curPage %}
+					<a class="page-num" href="{{ page.url }}">
+						<div>{{ page.number }}</div>
+					</a>
+				{% else %}
+					<div class="page-num current"><div>{{ page.number }}</div></div>
+				{% endif %}
+			{% endfor %}
+		</div>
+	</div>
+	<div class="page-button next">
+		{% if pagination.next != null %}
+			<a href="{{ pagination.next }}">Next</a>
+		{% endif %}
+	</div>
+</nav>

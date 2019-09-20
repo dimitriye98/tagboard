@@ -1,0 +1,9 @@
+{% extends 'layout.html' %}
+
+{% block title %}{{ user }}{% endblock %}
+
+{% block content %}
+	<h1>All files by {{ user }}</h1>
+	{% include "list.html" %}
+{% endblock %}
+

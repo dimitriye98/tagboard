@@ -1,0 +1,40 @@
+{
+  "name": "tagboard",
+  "version": "0.1.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "nodemon --harmony index.js",
+    "start": "node --harmony index.js"
+  },
+  "author": "Dimitriye Danilovic",
+  "dependencies": {
+    "koa": "~2.3.0",
+    "koa-router": "~7.2.1",
+    "koa-ctx-paginate": "~0.0.3",
+    "koa-passport": "~4.0.1",
+    "koa-session": "~5.5.0",
+    "koa-redis": "~3.1.1",
+    "koa-logger": "~3.1.0",
+    "koa-compose": "~4.0.0",
+    "koa-static": "~4.0.1",
+    "koa-stylus": "~0.1.0",
+    "koa-better-body": "~3.0.4",
+    "co-views": "~2.1.0",
+    "co-monk": "~1.0.0",
+    "swig": "~1.4.2",
+    "sharp": "~0.20.4",
+    "monk": "~6.0.5",
+    "passport": "~0.4.0",
+    "passport-local": "~1.0.0",
+    "passport-http-bearer": "~1.0.1",
+    "async-busboy": "~0.6.2",
+    "gridfs-stream": "~1.1.1",
+    "inflation": "~2.0.0",
+    "urlsafe-base64": "~1.0.0",
+    "shortid": "~2.2.8",
+    "mime-types": "~2.1.17"
+  },
+  "devDependencies": {
+    "nodemon": "~1.0.17"
+  }
+}

@@ -1,0 +1,30 @@
+{% extends 'layout.html' %}
+
+{% block title %}Register{% endblock %}
+
+{% block content %}
+	<h1>Register</h1>
+	<form action="/form/register" method="post">
+		<!-- Hidden field to tell the form where to return to -->
+		<input type="hidden" value="{{ retpage }}" name="retpage">
+
+		{% if error == 'user-exists' %}
+			<p><span class="login-error">Username already taken.</span></p>
+		{% endif %}
+		{% if error == 'invalid-pw' %}
+			<p><span class="login-error">Password does not meet requirements.</span></p>
+		{% endif %}
+
+		<input type="text" placeholder="Username" name="username">
+
+		<p>Passwords may contain alphanumeric characters, spaces and the following:
+			<span class="allowed-chars">.,;:!?&@#$%'"</span></p>
+		<p>They must be 8 or more characters and may not begin or end with a space.</p>
+		<input type="password" placeholder="Password" name="password">
+		<p>The most secure form of password is a passphrase or sentence such as "correct horse battery staple" or
+			"Lucky Luke finds lucky pennies."</p>
+
+		<input type="submit" value="Register">
+	</form>
+{% endblock %}
+

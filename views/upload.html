@@ -1,0 +1,25 @@
+{% extends 'layout.html' %}
+
+{% block title %}Upload{% endblock %}
+
+{% block content %}
+	<h1>Upload</h1>
+	<form action="/form/upload" method="post" enctype="multipart/form-data">
+		<div>
+			<label for="postname">Post name:</label>
+			<input type="text" id="postname" name="postname" placeholder="Name">
+		</div>
+		<div>
+			<label for="desc">Description:</label>
+			<textarea id="desc" name="desc" placeholder="Description"></textarea>
+		</div>
+		<div>
+			<label for="tags">Tags:</label>
+			<input type="text" id="tags" name="tags" placeholder="Tags, separate by space">
+			Separate by space, may contain lowercase alphanumeric characters and &lsquo;-&rsquo;.
+		</div>
+		<input type="file" name="upload">
+		<input type="submit" value="Upload">
+	</form>
+{% endblock %}
+

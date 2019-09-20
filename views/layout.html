@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>{% block title %}CIS89A Imageboard{% endblock %}</title>
+	<link rel="stylesheet" href="/layout.css">
+	{% block extend-head %}
+	{% endblock %}
+</head>
+<body>
+<header>
+	{% include "./userbox.html" with userbox only%}
+	<nav class="navbar navbar-mixin">
+		<a href="/">Index</a>
+		<a href="/upload">Upload</a>
+		<form class="search" action="/query">
+			<input type="text" name="q">
+			<button type="submit">Search</button>
+		</form>
+	</nav>
+</header>
+<main>
+	{% block content %}
+		<p>Missing content!</p>
+	{% endblock %}
+</main>
+</body>
+</html>

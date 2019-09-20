@@ -1,0 +1,35 @@
+{% extends 'layout.html' %}
+
+{% block title %}Add Tags{% endblock %}
+
+{% block extend-head %}
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"
+	        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+	        crossorigin="anonymous"></script>
+{% endblock %}
+
+{% block content %}
+	<h1>Add/Remove Tags</h1>
+	<a href=".">Back</a>
+	<form action="/form/edit-tags" method="post" enctype="multipart/form-data">
+		<nav class="existing-tags editable-tags">
+			<!-- editable-tags class signals to script where to put removal widgets -->
+			<script src="/remove-tags.js"></script>
+			<h2>Tags</h2>
+			<ul>
+				{% for tag in tags %}
+					<li><a class="tag" href="/tags/{{ tag }}">{{ tag }}</a></li>
+				{% endfor %}
+			</ul>
+		</nav>
+		<div>
+			<input type="hidden" value="{{ imageid }}" name="imageid">
+			<label for="tags">New tags:</label>
+			<input type="text" id="tags" name="tags" placeholder="Tags, separate by space">
+			<p>Separate by space, may contain lowercase alphanumeric characters and -, may not begin or end with dash.</p>
+			<p>Prefix tag with - to remove.</p>
+		</div>
+		<input type="submit" value="Update">
+	</form>
+{% endblock %}
+

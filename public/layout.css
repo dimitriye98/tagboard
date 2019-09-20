@@ -1,0 +1,228 @@
+/* Fonts from Google Fonts - more at https://fonts.google.com */
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700');
+@import url('https://fonts.googleapis.com/css?family=Merriweather:400,700');
+
+@import url('/palette.css');
+
+html {
+	height: 100%;
+}
+
+body {
+	font-family: "Open Sans", sans-serif;
+	padding: 0;
+	font-size: 18px;
+	margin: 0;
+
+	color: var(--main-text-color);
+	background-color: var(--bg-color);
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+}
+
+main {
+	flex-grow: 1;
+}
+
+/* Fixes a CSS bug in Chromium browsers where
+   percentile sizes don't work in flex */
+.shrinkwrap {
+	position: relative;
+}
+
+.shrinkwrap > * {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+}
+
+.userbox {
+	float: right;
+	text-align: right;
+	display: inline-block;
+}
+
+.navbar {
+	clear: both;
+	display: flex;
+	padding: .2em 0;
+	align-items: center;
+	flex-wrap: wrap;
+}
+
+.navbar>* {
+	margin: 0 .4em;
+}
+
+.navbar .search {
+	flex-grow: 1;
+	text-align: right;
+	height: 1em;
+	display: flex;
+	justify-content: flex-end;
+}
+
+.navbar .search input[type="text"] {
+	min-width: 0;
+	flex: 0 1 20em;
+}
+
+@media(max-width: 350pt) {
+	.navbar .search input[type="text"] {
+		flex-grow: 1;
+	}
+}
+
+.navbar-mixin {
+	background-color: var(--main-rule-color);
+	font-size: 18pt;
+}
+
+.navbar-mixin a, .navbar-mixin a:visited {
+	color: var(--secondary-rule-color);
+	text-decoration: none;
+}
+
+.navbar-mixin a:hover {
+	color: var(--highlight-color);
+}
+
+h1 {
+	font-size: 2em;
+	color: var(--secondary-text-color);
+}
+
+h2 {
+	font-size: 1.2em;
+	color: var(--secondary-text-color);
+}
+
+textarea {
+	width: 500px;
+	height: 500px;
+}
+
+.img-list {
+	font-size: 0;
+}
+
+.img-list img {
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
+}
+
+.img-tile {
+	width: 100%;
+	display: inline-block;
+	padding: 3pt;
+	box-sizing: border-box;
+}
+
+@media (min-width: 3in) and (max-width: 4.5in) {
+	.img-tile {
+		width: 50%;
+		display: inline-block;
+	}
+}
+
+@media (min-width: 4.5in) and (max-width: 7.5in) {
+	.img-tile {
+		width: 33.33%;
+		display: inline-block;
+	}
+}
+
+@media (min-width: 7.5in) and (max-width: 9in) {
+	.img-tile {
+		width: 20%;
+		display: inline-block;
+	}
+}
+
+@media (min-width: 9in) {
+	.img-tile {
+		width: 16.66%;
+		display: inline-block;
+	}
+}
+
+.thumb-border {
+	padding: 3pt;
+	border: 1px solid grey;
+}
+
+.thumb-box {
+	display: block;
+	padding: 50%;
+}
+
+header {
+	background-color: var(--secondary-rule-color);
+}
+
+.pages-wrapper {
+	text-align: center;
+}
+
+.pages {
+	display: inline-block;
+	border: 1px black solid;
+
+	font-size: 20pt;
+}
+
+.pages-inner {
+	width: 7em;
+	height: 1em;
+	box-sizing: border-box;
+
+	display: flex;
+}
+
+.page-num {
+	width: 1em;
+	height: 1em;
+}
+
+.page-num * {
+	font-size: 12pt;
+}
+
+.pages-wrapper {
+	display: flex;
+	justify-content: center;
+}
+
+.page-button {
+	width: 60pt;
+}
+
+.delete::before {
+	content: 'X';
+	margin-left: .5em;
+}
+
+.add-tag {
+	display: flex;
+}
+
+.add-tag input[type=text] {
+	flex: 1 1;
+	min-width: 0;
+}
+
+.add-tag>* {
+	margin: 0 .15em;
+}
+
+.add-tag>*:first-child {
+	margin-left: 0;
+}
+
+.add-tag>*:last-child {
+	margin-right: 0;
+}

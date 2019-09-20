@@ -1,0 +1,34 @@
+{% extends 'layout.html' %}
+
+{% block title %}{{ postname }}{% endblock %}
+
+{% block extend-head %}
+	<link rel="stylesheet" href="/image.css">
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"
+	        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+	        crossorigin="anonymous"></script>
+	<script src="/edit-tags.js"></script>
+	<meta name="keywords" content="{% for tag in tags %}{{ tag }}{% if !loop.last %},{% endif %}{% endfor %}"
+{% endblock %}
+
+{% block content %}
+	<nav class="img-tags">
+		<h2>Tags</h2>
+		<ul>
+			{% for tag in tags %}
+				<li><a class="tag" href="/tags/{{ tag }}">{{ tag }}</a></li>
+			{% endfor %}
+			<li><a class="edit-tags" href="/image/{{ id }}/edit-tags">Edit tags...</a></li>
+		</ul>
+	</nav>
+	<div class="img-field shrinkwrap">
+		<h1>{{ postname }}</h1>
+		<div class="img-container">
+			<img src="{{ embed }}">
+		</div>
+	</div>
+	<div class="description">
+		<p>Uploaded by: <a href="/users/{{ ownerId }}">{{ ownerName }}</a></p>
+		<p>{{ desc }}</p>
+	</div>
+{% endblock %}
